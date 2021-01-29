@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:signal_cone/layouts/cubit/home_screen.dart';
-
+import 'package:signal_cone/cubit/home_screen.dart';
 void main() {
   runApp(MyApp());
 }
