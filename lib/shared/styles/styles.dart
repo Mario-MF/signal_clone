@@ -17,7 +17,6 @@ TextStyle black900 = TextStyle(
 );
 TextStyle black20 = TextStyle(
     fontSize: 18.0,
-
     fontWeight: FontWeight.w900
 );
 TextStyle black500 = TextStyle(
@@ -39,4 +38,28 @@ TextStyle grey16 = TextStyle(
 TextStyle grey18 = TextStyle(
   fontSize: 18.0,
   color: Colors.grey[600],
+);
+
+TextStyle whiteBold22 = TextStyle(
+  fontSize: 22.0,
+  fontWeight: FontWeight.bold
+);
+
+TextStyle whiteBold25= TextStyle(
+    fontSize: 25.0,
+    fontWeight: FontWeight.bold
+);
+
+TextStyle white18 = TextStyle(
+  fontSize: 18,
+  color: Colors.white
+);
+
+TextStyle white14 = TextStyle(
+    fontSize: 14,
+    color: Colors.white
+);
+TextStyle white16 = TextStyle(
+    fontSize: 16,
+    color: Colors.white
 );
