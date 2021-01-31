@@ -10,11 +10,9 @@ class ChatsCubit extends Cubit<ChatsState> {
 
   static ChatsCubit get(context) => BlocProvider.of(context);
 
-
-  var clears;
-
-
   GlobalKey keyWidget = GlobalKey<ScaffoldState>();
+  GlobalKey globalKey = GlobalKey();
+
 
   List<PopupMenu> menues = <PopupMenu>[PopupMenu(
     name: 'New group  ',
@@ -58,9 +56,10 @@ class ChatsCubit extends Cubit<ChatsState> {
   void clear(int i) {
     emit(InitialRemove());
     list2.removeAt(i);
-    if(list2.isEmpty){
-    }
-  }
+    if(list2.isEmpty)
 
+    emit(InitialError());
+
+  }
 
 }
