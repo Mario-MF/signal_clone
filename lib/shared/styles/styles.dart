@@ -15,15 +15,25 @@ TextStyle black900 = TextStyle(
   fontWeight: FontWeight.w500,
   color: Colors.grey[700],
 );
+
 TextStyle black20 = TextStyle(
     fontSize: 18.0,
-
     fontWeight: FontWeight.w900
 );
 TextStyle black500 = TextStyle(
     fontSize: 16.0,
     fontWeight: FontWeight.w500,
     letterSpacing: 0.3
+);
+TextStyle black600 = TextStyle(
+    fontSize: 18.0,
+    fontWeight: FontWeight.w600,
+    letterSpacing: 0.3
+);
+TextStyle black700 = TextStyle(
+    fontSize: 18.0,
+    fontWeight: FontWeight.w400,
+
 );
 
 TextStyle grey14 = TextStyle(

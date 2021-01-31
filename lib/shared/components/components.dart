@@ -10,12 +10,13 @@ Widget defultButton(
       double width = double.infinity,
       double fz = 15.0,
       toUpper = true,
-      fontWeight = FontWeight.bold}) =>
+      fontWeight = FontWeight.bold,
+      borderColor= Colors.blueAccent}) =>
     Container(
       height: height,
       width: width,
       decoration: BoxDecoration(
-        border: Border.all(color: Colors.indigo),
+        border: Border.all(color: borderColor),
         color: color,
         borderRadius: BorderRadius.circular(r),
       ),
