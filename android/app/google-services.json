@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "892799665136",
+    "project_id": "signal-colne",
+    "storage_bucket": "signal-colne.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:892799665136:android:a755059cc27e8ee7e49335",
+        "android_client_info": {
+          "package_name": "com.flutterteamgroup.signal_cone"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "892799665136-mgpg126h17t5gnk0t0lrfgqti01s897m.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.flutterteamgroup.signal_cone",
+            "certificate_hash": "6deca443fdd1d48dd61c6061391b7cc3ac823d36"
+          }
+        },
+        {
+          "client_id": "892799665136-f1ffgctsu4p1fbeatpon7v8patq0l65v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAewrIIP0T2bv8EpdCL8SmsV7IPvz_226Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "892799665136-f1ffgctsu4p1fbeatpon7v8patq0l65v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
