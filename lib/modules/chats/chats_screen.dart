@@ -40,7 +40,6 @@ class ChatsScreen extends StatelessWidget {
                     ),
                   ),
                   PopupMenuButton(
-
                       icon: Icon(
                         Icons.more_vert,
                         size: 25,
@@ -66,8 +65,8 @@ class ChatsScreen extends StatelessWidget {
                 ]),
             body: Column(
               children: [
-                chats(),
-               getStarted(context),
+                chats(context),
+                getStarted(context),
               ],
             ),
           );
@@ -75,167 +74,161 @@ class ChatsScreen extends StatelessWidget {
         listener: (context, state) {});
   }
 
-  Widget chats()=> Expanded(
-
-
-    child: Padding(
-      padding: EdgeInsets.all(15),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          SizedBox(
-            height: 30,
-          ),
-          Expanded(
-            child: Text(
-              'No Chat yat. \n'
+  Widget chats(context) => Expanded(
+        // key: ChatsCubit.get(context).keyWidget,
+        child: Padding(
+          padding: EdgeInsets.all(15),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              SizedBox(
+                height: 30,
+              ),
+              Expanded(
+                child: Text(
+                  'No Chat yat. \n'
                   'Get started by messaging a \n friend.',
-              style: black500.copyWith(color: Colors.white),
-              textAlign: TextAlign.center,
-            ),
-          ),
-          Stack(alignment: Alignment.bottomRight, children: [
-            Column(
-              children: [
-                GestureDetector(
-                  onTap: () {
-                    print('camera');
-                  },
-                  child: CircleAvatar(
-                    backgroundColor: Colors.grey[800],
-                    radius: 25,
-                    child: Icon(Icons.camera_alt,
-                        size: 20, color: Colors.white),
-                  ),
+                  style: black500.copyWith(color: Colors.white),
+                  textAlign: TextAlign.center,
                 ),
-                SizedBox(
-                  height: 10,
-                ),
-                GestureDetector(
-                  onTap: () {
-                    print('edit');
-                  },
-                  child: CircleAvatar(
-                    radius: 25,
-                    backgroundColor: Colors.blue,
-                    child: Icon(
-                      Icons.edit,
-                      size: 20,
-                      color: Colors.white,
-                    ),
-                  ),
-                )
-              ],
-            )
-          ]),
-          SizedBox(
-            height: 10,
-          ),
-        ],
-      ),
-    ),
-  );
-
-  Widget getStarted(context)=>  Padding(
-    key: ChatsCubit.get(context).globalKey,
-    padding: EdgeInsets.only(left: 10.0),
-    child: Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          'Get Started',
-          style: black20.copyWith(color: Colors.white),
-        ),
-        Container(
-          height: 200,
-          child: GridView.count(
-            scrollDirection: Axis.horizontal,
-            crossAxisCount: 1,
-            children:
-            List.generate( ChatsCubit.get(context).list2.length, (index) {
-              return Container(
-                margin: EdgeInsets.only(
-                    right: 7, top: 15, bottom: 15),
-                decoration: BoxDecoration(
-                  color: Colors.grey[800],
-                  borderRadius: BorderRadius.circular(15),
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
+              ),
+              Stack(alignment: Alignment.bottomRight, children: [
+                Column(
                   children: [
-                    Stack(
-                      clipBehavior: Clip.none,
-                      children: [
-                        Container(
-                          width:
-                          MediaQuery.of(context).size.width,
-                          height: 113,
-                          decoration: BoxDecoration(
-                              color: Colors.white10,
-                              borderRadius: BorderRadius.vertical(
-                                  top: Radius.circular(15)),
-                              image: DecorationImage(
-                                image: NetworkImage(
-                                    ChatsCubit.get(context).list2[index].url),
-                                fit: BoxFit.cover,
-                              )),
-                        ),
-                        Container(
-                          padding: EdgeInsets.all(5),
-                          child: CircleAvatar(
-                            child: IconButton(
-                              icon: Icon(
-                                Icons.clear,
-                                size: 15,
-                                color: Colors.white,
-                              ),
-                              alignment: Alignment.topLeft,
-                              onPressed: () =>
-                                  ChatsCubit.get(context)
-                                      .clear(index),
-                            ),
-                            radius: 15,
-                            backgroundColor:
-                            Colors.grey.withOpacity(0.7),
-                          ),
-                          alignment: Alignment.topRight,
-                          decoration: BoxDecoration(
-                              borderRadius:
-                              BorderRadius.circular(5)),
-                        )
-                      ],
-                    ),
-
                     GestureDetector(
-                      onTap: () {},
-                      child: Container(
-                        alignment: Alignment.center,
-                        height:
-                        MediaQuery.of(context).size.height /
-                            21,
-                        margin: EdgeInsets.symmetric(
-                            vertical: 10, horizontal: 10),
-                        decoration: BoxDecoration(
-                          border: Border.all(
-                              color: Colors.grey.shade500),
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        child: Text(
-                          ChatsCubit.get(context).list2[index].name,
-                          style: black600.copyWith(
-                              color: Color(0xff7D97EB)),
-                          textAlign: TextAlign.center,
-                        ),
+                      onTap: () {
+                        print('camera');
+                      },
+                      child: CircleAvatar(
+                        backgroundColor: Colors.grey[800],
+                        radius: 25,
+                        child: Icon(Icons.camera_alt,
+                            size: 20, color: Colors.white),
                       ),
                     ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        print('edit');
+                      },
+                      child: CircleAvatar(
+                        radius: 25,
+                        backgroundColor: Colors.blue,
+                        child: Icon(
+                          Icons.edit,
+                          size: 20,
+                          color: Colors.white,
+                        ),
+                      ),
+                    )
                   ],
-                ),
-              );
-            }),
+                )
+              ]),
+              SizedBox(
+                height: 10,
+              ),
+            ],
           ),
         ),
-      ],
-    ),
-  );
+      );
 
+  Widget getStarted(context) => Visibility(
+        visible:ChatsCubit.get(context).isVisibility,
+        child: Padding(
+          // key: ChatsCubit.get(context).globalKey,
+          padding: EdgeInsets.only(left: 10.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Get Started',
+                style: black20.copyWith(color: Colors.white),
+              ),
+              Container(
+                height: 200,
+                child: GridView.count(
+                  scrollDirection: Axis.horizontal,
+                  crossAxisCount: 1,
+                  children: List.generate(ChatsCubit.get(context).list2.length,
+                      (index) {
+                    return Container(
+                      margin: EdgeInsets.only(right: 7, top: 15, bottom: 15),
+                      decoration: BoxDecoration(
+                        color: Colors.grey[800],
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: [
+                          Stack(
+                            clipBehavior: Clip.none,
+                            children: [
+                              Container(
+                                width: MediaQuery.of(context).size.width,
+                                height: 113,
+                                decoration: BoxDecoration(
+                                    color: Colors.white10,
+                                    borderRadius: BorderRadius.vertical(
+                                        top: Radius.circular(15)),
+                                    image: DecorationImage(
+                                      image: NetworkImage(
+                                          ChatsCubit.get(context)
+                                              .list2[index]
+                                              .url),
+                                      fit: BoxFit.cover,
+                                    )),
+                              ),
+                              Container(
+                                padding: EdgeInsets.all(5),
+                                child: CircleAvatar(
+                                  child: IconButton(
+                                    icon: Icon(
+                                      Icons.clear,
+                                      size: 15,
+                                      color: Colors.white,
+                                    ),
+                                    alignment: Alignment.topLeft,
+                                    onPressed: () =>
+                                        ChatsCubit.get(context).clear(index),
+                                  ),
+                                  radius: 15,
+                                  backgroundColor: Colors.grey.withOpacity(0.7),
+                                ),
+                                alignment: Alignment.topRight,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(5)),
+                              )
+                            ],
+                          ),
+                          GestureDetector(
+                            onTap: () {},
+                            child: Container(
+                              alignment: Alignment.center,
+                              height: MediaQuery.of(context).size.height / 21,
+                              margin: EdgeInsets.symmetric(
+                                  vertical: 10, horizontal: 10),
+                              decoration: BoxDecoration(
+                                border: Border.all(color: Colors.grey.shade500),
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                              child: Text(
+                                ChatsCubit.get(context).list2[index].name,
+                                style:
+                                    black600.copyWith(color: Color(0xff7D97EB)),
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    );
+                  }),
+                ),
+              ),
+            ],
+          ),
+        ),
+      );
 }

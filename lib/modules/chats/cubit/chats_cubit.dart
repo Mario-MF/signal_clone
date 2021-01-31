@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:signal_cone/model/model.dart';
 import 'package:signal_cone/modules/chats/cubit/chats_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -10,8 +9,10 @@ class ChatsCubit extends Cubit<ChatsState> {
 
   static ChatsCubit get(context) => BlocProvider.of(context);
 
-  GlobalKey keyWidget = GlobalKey<ScaffoldState>();
-  GlobalKey globalKey = GlobalKey();
+  // GlobalKey keyWidget = GlobalKey<ScaffoldState>();
+  // GlobalKey globalKey = GlobalKey();
+
+  bool isVisibility = true;
 
 
   List<PopupMenu> menues = <PopupMenu>[PopupMenu(
@@ -57,9 +58,8 @@ class ChatsCubit extends Cubit<ChatsState> {
     emit(InitialRemove());
     list2.removeAt(i);
     if(list2.isEmpty)
-
-    emit(InitialError());
-
+      emit(InitialClear());
+    isVisibility=!isVisibility;
   }
 
 }

@@ -5,3 +5,5 @@ class Check extends ChatsState{}
 class InitialSuccess extends ChatsState{}
 class InitialError extends ChatsState{}
 class InitialRemove extends ChatsState{}
+class InitialClear extends ChatsState{}
+
