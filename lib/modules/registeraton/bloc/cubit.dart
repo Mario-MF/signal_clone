@@ -52,6 +52,7 @@ class RegistrationCubit extends Cubit<RegistrationStates>{
         isLoading=false;
         navigateTo(context: context,widget: OtpVerification(
           phoneNumber:'$countryCode$phone' ,
+          verificationId: verificationId,
         ));
         emit(SuccessState());
       },

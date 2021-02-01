@@ -2,6 +2,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:signal_cone/cubit/home_screen.dart';
+import 'package:signal_cone/modules/otp_verification/bloc/cubit.dart';
+import 'package:signal_cone/modules/otp_verification/otp_verification.dart';
 import 'package:signal_cone/modules/registeraton/bloc/cubit.dart';
 import 'package:signal_cone/modules/registeraton/otp_auth_screen.dart';
 void main() async{
@@ -16,7 +18,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
         providers: [
-          BlocProvider(create: (context)=>RegistrationCubit())
+          BlocProvider(create: (context)=>RegistrationCubit()),
+          BlocProvider(create: (context)=>OtpVerificationCubit(),)
 
         ],
         child: MaterialApp(
